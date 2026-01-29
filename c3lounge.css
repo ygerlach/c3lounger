@@ -1,0 +1,33 @@
+#progress {
+    pointer-events: none;
+}
+
+#playlist {
+    border-collapse: separate;
+    border-radius: 6px;
+    border: solid black 1px;
+}
+tr.next {
+    background: #758aff;
+}
+
+tr.now {
+    background: #7fff72;
+}
+
+tr.history {
+    background: #ff7a70;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #34353b;
+        color: #f0f0f0;
+    }
+    tr.now {
+        color: #34353b;
+    }
+    #playlist {
+        border-color: #555;
+    }
+}

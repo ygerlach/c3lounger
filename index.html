@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="c3lounge.css">
+    <title>C3Lounge</title>
+</head>
+<body>
+    <audio src="https://live.c3lounge.de/listen/c3lounge_radio/192.mp3" id="audio"></audio>
+    <table id="playarea">
+        <tr>
+            <th>Play/Pause</th>
+            <th>Volume</th>
+            <th>Progress</th>
+        </tr>
+        <tr>
+            <td><button id="playpause">Play</button></td>
+            <td><input type="range" id="volume" min="0" max="1" step="0.001" value="1"></td>
+            <td>
+                <table>
+                    <tr>
+                        <td><td><input type="range" id="progress"></td>
+                        <td><div id="positiondata"></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table id="playlist">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Event</th>
+                <th>Genre</th>
+                <th>Duration</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody id="playlist-body">
+            <!-- Playlist items will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <script src="c3lounge.js"></script>
+</body>
+</html>

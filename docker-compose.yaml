@@ -1,0 +1,8 @@
+services:
+  web:
+    container_name: c3lounge
+    image: c3lounge
+    build: .
+    ports:
+      - "19892:80"
+    restart: unless-stopped

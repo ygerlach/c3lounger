@@ -86,13 +86,36 @@ function formatEntry(title, artist, durationHR, startUnix, endUnix) {
     return `${title} - ${artist} [${durationHR}] (from ${startUnix} to ${endUnix})`;
 }
 
-function createEntry(index, title, artist, event, genre, durationHR, startUnix, endUnix) {
+function addCell(text, parent) {
+    let cell = document.createElement("td");
+    cell.innerText = text;
+    parent.appendChild(cell);
+    return
+}
+
+function addCellWithLink(text, link, parent) {
+    let cell = document.createElement("td");
+    let cellLink = document.createElement("a");
+    cellLink.href = link;
+    cellLink.innerText = text;
+    cell.appendChild(cellLink);
+    parent.appendChild(cell);
+    return
+}
+
+function createEntry(index, entryData) {
     let entry = document.createElement("tr");
-    for (let i = 0; i < arguments.length; i++) {
-        let cell = document.createElement("td");
-        cell.innerHTML = arguments[i];
-        entry.appendChild(cell);
-    }
+
+    addCell(index.toString(), entry);
+    addCell(entryData.title, entry);
+    const artistLink = entryData.artist.toLowerCase().replaceAll(" ", "-");
+    addCellWithLink(entryData.artist, `https://c3sets.de/artists/${artistLink}`, entry);
+    addCell(entryData.event, entry);
+    addCell(entryData.genre, entry);
+    addCell(entryData.durationHR, entry);
+    addCell(entryData.startUnix, entry);
+    addCell(entryData.endUnix, entry);
+
     return entry;
 }
 function displayData(data) {
@@ -100,41 +123,14 @@ function displayData(data) {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
-    let entry = createEntry(
-        "-1",
-        data.next.title,
-        data.next.artist,
-        data.next.event,
-        data.next.genre,
-        data.next.durationHR,
-        data.next.startUnix,
-        data.next.endUnix
-    );
+    let entry = createEntry(-1, data.next);
     entry.className = "next";
     list.appendChild(entry);
-    entry = createEntry(
-        "0",
-        data.title,
-        data.artist,
-        data.event,
-        data.genre,
-        data.durationHR,
-        data.startUnix,
-        data.endUnix
-    );
+    entry = createEntry(0, data);
     entry.className = "now";
     list.appendChild(entry);
     for (let i = 0; i < data.history.length; i++) {
-        entry = createEntry(
-            (i + 1).toString(),
-            data.history[i].title,
-            data.history[i].artist,
-            data.history[i].event,
-            data.history[i].genre,
-            data.history[i].durationHR,
-            data.history[i].startUnix,
-            data.history[i].endUnix
-        );
+        entry = createEntry((i + 1), data.history[i]);
         entry.className = "history";
         list.appendChild(entry);
     }

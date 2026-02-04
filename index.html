@@ -2,51 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="c3lounge.css">
     <title>C3Lounge</title>
 </head>
 <body>
     <audio src="https://live.c3lounge.de/listen/c3lounge_radio/192.mp3" id="audio"></audio>
-    <table id="playarea">
-        <tr>
-            <th>Play/Pause</th>
-            <th>Volume</th>
-            <th>Progress</th>
-        </tr>
-        <tr>
-            <td><button id="playpause">Play</button></td>
-            <td><input type="range" id="volume" min="0" max="1" step="0.001" value="1"></td>
-            <td>
-                <table>
-                    <tr>
-                        <td><td><input type="range" id="progress"></td>
-                        <td><div id="positiondata"></div></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <div class="control-table">
+        <table id="playarea">
+            <thead>
+                <tr>
+                    <th>Play/Pause</th>
+                    <th>Volume</th>
+                    <th>Progress</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Play/Pause"><button id="playpause">Play</button></td>
+                    <td data-label="Volume"><input type="range" id="volume" min="0" max="1" step="0.001" value="1"></td>
+                    <td data-label="Progress"><input type="range" id="progress"></td>
+                    <td data-label="Position"><div id="positiondata"></div></td>
+                        <!--<table>
+                            <tr>
+                                <td data-label="Progress"><td><input type="range" id="progress"></td>
+                                <td data-label="Position"><div id="positiondata"></div></td>
+                            </tr>
+                        </table>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <br>
 
-    <table id="playlist">
-        <thead>
-            <tr>
-                <th>Index</th>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Event</th>
-                <th>Genre</th>
-                <th>Duration</th>
-                <th>Start</th>
-                <th>End</th>
-            </tr>
-        </thead>
-        <tbody id="playlist-body">
-            <!-- Playlist items will be dynamically inserted here -->
-        </tbody>
-    </table>
+    <div class="list-table">
+
+        <table id="playlist">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Event</th>
+                    <th>Genre</th>
+                    <th>Duration</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+            </thead>
+            <tbody id="playlist-body">
+                <!-- Playlist items will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
     <script src="c3lounge.js"></script>
 </body>
 </html>

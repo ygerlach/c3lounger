@@ -2,11 +2,15 @@
     pointer-events: none;
 }
 
-#playlist {
-    border-collapse: separate;
-    border-radius: 6px;
-    border: solid black 1px;
+
+@media (min-width: 801px) {
+    #playlist {
+        border-collapse: separate;
+        border-radius: 6px;
+        border: solid black 1px;
+    }
 }
+
 tr.next {
     background: #758aff;
 }
@@ -31,3 +35,71 @@ tr.history {
         border-color: #555;
     }
 }
+@media (max-width: 800px) {
+    .list-table table,
+    .list-table thead,
+    .list-table tbody,
+    .list-table td,
+    .list-table th,
+    .list-table tr {
+        display: block;
+    }
+
+    .list-table table {
+        border: none;
+    }
+
+    .list-table thead  {
+        display: none;
+    }
+
+    .list-table tr {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+    }
+
+    .list-table td {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    .list-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 768px) {
+  /* Tabelle als Block darstellen */
+  .control-table table,
+  .control-table thead,
+  .control-table tbody,
+  .control-table tr,
+  .control-table td,
+  .control-table th {
+    display: block;      /* alle Elemente blocken */
+  }
+
+  .control-table thead {
+    display: none;       /* optional: Header ausblenden */
+  }
+
+  .control-table tr {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+  }
+
+  .control-table td {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .control-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+  }
+}
+

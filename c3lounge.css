@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+#positiondata {
+    font-family: monospace;
+}
+
 @media (min-width: 801px) {
     #playarea {
         width: 100%;

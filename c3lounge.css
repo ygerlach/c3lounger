@@ -48,6 +48,10 @@ tr.history {
     opacity: 1 !important; /* yeah, sorry for the !important, but otherwise we cannot overrule the JS calculated opacity */
 }
 
+#repolink {
+    color: #84858b;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #34353b;
@@ -58,6 +62,9 @@ tr.history {
     }
     #playlist {
         border-color: #555;
+    }
+    #repolink {
+        color: #202020;
     }
 }
 @media (max-width: 800px) {
